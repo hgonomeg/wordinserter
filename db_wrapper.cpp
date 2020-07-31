@@ -6,7 +6,7 @@
 #include <QMessageBox>
 #include <random>
 #include <chrono>
-#include <map>
+#include <vector>
 
 Db_wrapper::Db_wrapper(const QString& filename) 
 {
@@ -27,12 +27,12 @@ QStringList Db_wrapper::transform(QStringList&& input_data) const {
     std::default_random_engine rand_eng(seed);
     std::uniform_real_distribution<float> distribution(0.f,1.f);
 
-    std::map<QString,float> phrases;
+    std::vector<std::pair<QString,float>> phrases;
     QSqlQuery query("SELECT * FROM phrases",this->db);
     while(query.next()) {
         QString phrase = query.value(0).toString();
         float frequency = query.value(1).toFloat();
-        phrases.emplace(phrase,frequency);
+        phrases.push_back({phrase,frequency});
     }
 
     QStringList ret;
