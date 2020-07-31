@@ -3,6 +3,7 @@
 #include <QStringList>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QMessageBox>
 #include <random>
 #include <chrono>
 #include <map>
@@ -51,6 +52,7 @@ bool Db_wrapper::loadFromFilename(const QString& filename) {
         db.close();
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(filename);
+    try{
     if(!db.open()) {
         throw std::runtime_error(tr("Failed to open SQLITE database: ").toStdString()+filename.toStdString());
     }
@@ -64,6 +66,11 @@ bool Db_wrapper::loadFromFilename(const QString& filename) {
     m_model->setEditStrategy(QSqlTableModel::EditStrategy::OnManualSubmit);
     m_model->select();
     return true;
+    }catch(std::exception& e)
+    {
+        QMessageBox::critical(nullptr,tr("Error loading databse"),QString::fromLocal8Bit(e.what()));
+        return false;
+    }
 }
 
 bool Db_wrapper::add_row() {

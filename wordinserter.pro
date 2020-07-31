@@ -16,3 +16,5 @@ FORMS += \
 HEADERS += wordinserter.hpp \
     wordsdialog.hpp \
     db_wrapper.hpp
+
+TRANSLATIONS += lang/wordinserter_pl.ts
