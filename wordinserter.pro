@@ -12,6 +12,8 @@ SOURCES += src/wordinserter.cpp \
 FORMS += \
     forms/wordinserter.ui \
     forms/wordsdialog.ui
+    
+INCLUDEPATH += ./include/
 
 HEADERS += include/wordinserter.hpp \
     include/wordsdialog.hpp \
