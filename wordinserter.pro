@@ -4,17 +4,17 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
 
-SOURCES += wordinserter.cpp \
-           main.cpp \
-           wordsdialog.cpp \
-           db_wrapper.cpp
+SOURCES += src/wordinserter.cpp \
+           src/main.cpp \
+           src/wordsdialog.cpp \
+           src/db_wrapper.cpp
 
 FORMS += \
-    wordinserter.ui \
-    wordsdialog.ui
+    forms/wordinserter.ui \
+    forms/wordsdialog.ui
 
-HEADERS += wordinserter.hpp \
-    wordsdialog.hpp \
-    db_wrapper.hpp
+HEADERS += include/wordinserter.hpp \
+    include/wordsdialog.hpp \
+    include/db_wrapper.hpp
 
 TRANSLATIONS += lang/wordinserter_pl.ts
