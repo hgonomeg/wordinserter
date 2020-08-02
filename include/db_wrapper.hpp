@@ -11,12 +11,12 @@ class Db_wrapper :public QObject {
   Q_OBJECT
 
  public:
-  Db_wrapper(const QString& filename);
+  Db_wrapper(const QString& filename); //may throw
   ~Db_wrapper();
 
   QSqlTableModel* getModel();
   QStringList transform(QStringList&& input_data) const;
-  bool loadFromFilename(const QString& filename);
+  void loadFromFilename(const QString& filename); //may throw
  public slots:
   bool add_row();
   bool delete_row(int row);

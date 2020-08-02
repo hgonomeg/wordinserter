@@ -3,7 +3,7 @@
 #include <QStringList>
 #include <QSqlQuery>
 #include <QDebug>
-#include <QMessageBox>
+#include <QSqlError>
 #include <random>
 #include <chrono>
 #include <vector>
@@ -47,14 +47,14 @@ QStringList Db_wrapper::transform(QStringList&& input_data) const {
     return ret;
 }
 
-bool Db_wrapper::loadFromFilename(const QString& filename) {
+void Db_wrapper::loadFromFilename(const QString& filename) {
     if(db.isOpen())
         db.close();
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName(filename);
-    try{
+
     if(!db.open()) {
-        throw std::runtime_error(tr("Failed to open SQLITE database: ").toStdString()+filename.toStdString());
+        throw std::runtime_error(tr("Failed to open SQLITE database: ").toStdString()+filename.toStdString()+'\n'+db.lastError().text().toStdString());
     }
     if(!db.tables().contains("phrases"))
         throw std::runtime_error(tr("Incompatible database!").toStdString());
@@ -65,12 +65,6 @@ bool Db_wrapper::loadFromFilename(const QString& filename) {
     m_model->setTable("phrases");
     m_model->setEditStrategy(QSqlTableModel::EditStrategy::OnManualSubmit);
     m_model->select();
-    return true;
-    }catch(std::exception& e)
-    {
-        QMessageBox::critical(nullptr,tr("Error loading databse"),QString::fromLocal8Bit(e.what()));
-        return false;
-    }
 }
 
 bool Db_wrapper::add_row() {

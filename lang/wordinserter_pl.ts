@@ -14,9 +14,8 @@
         <translation>Niekompatybilna baza danych!</translation>
     </message>
     <message>
-        <location filename="../src/db_wrapper.cpp" line="71"/>
         <source>Error loading databse</source>
-        <translation>Błąd ładowania bazy danych</translation>
+        <translation type="vanished">Błąd ładowania bazy danych</translation>
     </message>
 </context>
 <context>
@@ -49,6 +48,11 @@
         <location filename="../forms/wordinserter.ui" line="77"/>
         <source>Settings</source>
         <translation>Ustawienia</translation>
+    </message>
+    <message>
+        <location filename="../src/wordinserter.cpp" line="18"/>
+        <source>Error loading database</source>
+        <translation>Błąd ładowania bazy danych</translation>
     </message>
 </context>
 <context>
@@ -83,14 +87,19 @@
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/wordsdialog.cpp" line="15"/>
+        <location filename="../src/wordsdialog.cpp" line="16"/>
         <source>Add</source>
         <translation>Dodaj</translation>
     </message>
     <message>
-        <location filename="../src/wordsdialog.cpp" line="16"/>
+        <location filename="../src/wordsdialog.cpp" line="17"/>
         <source>Delete</source>
         <translation>Usuń</translation>
+    </message>
+    <message>
+        <location filename="../src/wordsdialog.cpp" line="60"/>
+        <source>Error loading database</source>
+        <translation>Błąd ładowania bazy danych</translation>
     </message>
 </context>
 </TS>

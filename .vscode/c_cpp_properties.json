@@ -4,11 +4,11 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/qt/QtCore/*",
-                "/usr/include/qt/QtSql/*",
-                "/usr/include/qt/QtWidgets/*",
-                "/usr/include/qt/QtGui/*",
-                "/usr/include/qt/*"
+                "/usr/include/qt5/QtCore/*",
+                "/usr/include/qt5/QtSql/*",
+                "/usr/include/qt5/QtWidgets/*",
+                "/usr/include/qt5/QtGui/*",
+                "/usr/include/qt5/*"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/g++",
