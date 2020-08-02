@@ -21,6 +21,7 @@ private slots:
     void ok();
     void cancel();
     void openDatabase();
+    void apply();
     bool deleteCurrentRow();
 private:
     Ui::WordsDialog *ui;

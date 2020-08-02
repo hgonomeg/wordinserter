@@ -25,6 +25,7 @@ WordsDialog::WordsDialog(QWidget *parent,std::shared_ptr<Db_wrapper> wrapper) :
 
     connect(ui->okButton,SIGNAL(clicked()),this,SLOT(ok()));
     connect(ui->cancelButton,SIGNAL(clicked()),this,SLOT(cancel()));
+    connect(ui->applyButton,SIGNAL(clicked()),this,SLOT(apply()));
     connect(ui->openDatabaseButton,SIGNAL(clicked()),this,SLOT(openDatabase()));
 }
 
@@ -41,6 +42,10 @@ void WordsDialog::ok() {
 void WordsDialog::cancel() {
     m_wrapper->getModel()->revertAll();
     this->close();
+}
+
+void WordsDialog::apply() {
+    m_wrapper->getModel()->submitAll();
 }
 
 void WordsDialog::openDatabase() {
